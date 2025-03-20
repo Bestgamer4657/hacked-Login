@@ -3,66 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Login - Clever</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: black;
-            color: white;
+            background-color: #f4f4f4;
             text-align: center;
             padding-top: 100px;
         }
-        #loginBox {
-            background: rgba(255, 255, 255, 0.1);
+        .login-container {
+            background: white;
             padding: 20px;
-            border-radius: 10px;
-            display: inline-block;
+            width: 300px;
+            margin: auto;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            border-radius: 5px;
         }
         input {
-            display: block;
-            margin: 10px auto;
+            width: 100%;
             padding: 10px;
-            width: 80%;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
         button {
-            padding: 10px 20px;
-            cursor: pointer;
-            background-color: red;
+            background: #0078d4;
             color: white;
+            padding: 10px;
+            width: 100%;
             border: none;
-            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
         }
-        #hackedMessage {
-            display: none;
-            font-size: 30px;
-            color: Black;
-            font-weight: bold;
-            margin-top: 20px;
-            text-shadow: 2px 2px 10px red;
+        button:hover {
+            background: #005ea2;
         }
     </style>
 </head>
 <body>
-
-    <div id="loginBox">
-        <h2>Login</h2>
-        <input type="text" id="username" placeholder="Username">
-        <input type="password" id="password" placeholder="Password">
-        <button onclick="fakeLogin()">Login</button>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAZKGqet3Vdh7VFwY0qBobMZPtsykCTv5E5w&s"z</img></br>
-        cedar crest
+    <div class="login-container">
+        <h2>Clever Login</h2>
+        <input type="text" placeholder="Username">
+        <input type="password" placeholder="Password">
+        <button onclick="redirect()">Log In</button>
     </div>
-
-    <div id="hackedMessage">⚠️ YOU'RE HACKED! ⚠️</div>
-
+    
     <script>
-        function fakeLogin() {
-            document.getElementById("loginBox").style.display = "none";
-            document.getElementById("hackedMessage").style.display = "block";
-            document.body.style.background = "red";
-            alert(username);
+        function redirect() {
+            window.location.href = "haved.html"; // This redirects to the second page
         }
     </script>
-
 </body>
 </html>
