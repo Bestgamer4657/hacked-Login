@@ -21,7 +21,7 @@
         }
         .login-container {
             background: white;
-            color: black;
+            color: white;
             padding: 20px;
             width: 350px;
             margin: auto;
