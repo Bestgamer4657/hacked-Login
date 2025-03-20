@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacking Simulation</title>
+    <style>
+        body {
+            font-family: monospace;
+            background-color: black;
+            color: green;
+            text-align: left;
+            padding: 20px;
+            margin: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .terminal {
+            background: black;
+            color: green;
+            width: 80%;
+            height: 60vh;
+            border: 2px solid green;
+            padding: 10px;
+            overflow: hidden;
+            white-space: pre-wrap;
+            font-size: 16px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal" id="terminal">
+        Initializing system...
+    </div>
+    
+    <script>
+        function typeText(element, text, speed = 50) {
+            let i = 0;
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        function startHackingSequence() {
+            let terminal = document.getElementById("terminal");
+            terminal.innerHTML = "";
+            
+            let hackingText = [
+                "Connecting to remote server...\n",
+                "Bypassing firewall...\n",
+                "Accessing encrypted files...\n",
+                "Decrypting security keys...\n",
+                "Injecting payload...\n",
+                "System override initiated...\n",
+                "HACK COMPLETE - SYSTEM COMPROMISED!\n",
+            ];
+            
+            let delay = 500;
+            hackingText.forEach((line, index) => {
+                setTimeout(() => {
+                    terminal.innerHTML += line;
+                }, delay * index);
+            });
+        }
+        
+        setTimeout(startHackingSequence, 2000);
+    </script>
+    
+    <div class="footer">HACKED SYSTEM</div>
+</body>
+</html>
