@@ -38,12 +38,22 @@
             font-weight: bold;
             color: green;
         }
+        input {
+            background: black;
+            color: green;
+            border: none;
+            font-size: 16px;
+            width: 80%;
+            outline: none;
+            font-family: monospace;
+        }
     </style>
 </head>
 <body>
     <div class="terminal" id="terminal">
         Initializing system...
     </div>
+    <input type="text" id="commandInput" placeholder="Enter command..." autofocus>
     
     <script>
         function typeText(element, text, speed = 50) {
@@ -81,6 +91,25 @@
         }
         
         setTimeout(startHackingSequence, 2000);
+
+        document.getElementById("commandInput").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                let command = event.target.value.trim();
+                let terminal = document.getElementById("terminal");
+                
+                terminal.innerHTML += `\n> ${command}`;
+                event.target.value = "";
+                
+                if (command === "/dis") {
+                    setTimeout(() => {
+                        terminal.innerHTML += "\nDISCONNECTING SYSTEM...\n";
+                        setTimeout(() => {
+                            document.body.innerHTML = "<h1 style='color: red; text-align: center;'>SYSTEM FAILURE: DISCONNECTED</h1>";
+                        }, 2000);
+                    }, 1000);
+                }
+            }
+        });
     </script>
     
     <div class="footer">HACKED SYSTEM</div>
