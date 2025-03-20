@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clever Login Prank</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding-top: 100px;
+            margin: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .container {
+            display: block;
+        }
+        .message-container, .explosion-container, .final-message, .hacked-message {
+            display: none;
+        }
+        .explosion-container {
+            font-size: 50px;
+            color: red;
+            font-weight: bold;
+            animation: shake 0.5s infinite alternate;
+        }
+        .hacked-message {
+            font-size: 40px;
+            color: red;
+            font-weight: bold;
+            display: none;
+        }
+        @keyframes shake {
+            0% { transform: translateX(-5px); }
+            100% { transform: translateX(5px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="loginBox">
+        <h2>Clever Login</h2>
+        <input type="text" placeholder="Username">
+        <input type="password" placeholder="Password">
+        <button onclick="showMessage()">Log In</button>
+    </div>
+    
+    <div class="message-container" id="prankMessage">
+        <h1>You Have Been Haved!</h1>
+    </div>
+    
+    <div class="explosion-container" id="explosionMessage">
+        💥 COMPUTER BLOWING UP IN <span id="countdown">5</span> SECONDS! 💥
+    </div>
+    
+    <div class="final-message" id="finalMessage">
+        ❌ COMPUTER NO MORE FUNCTIONING ❌
+    </div>
+    
+    <div class="hacked-message" id="hackedMessage">
+        🚨 YOU REALLY HAVE BEEN HACKED! 🚨
+    </div>
+    
+    <script>
+        function showMessage() {
+            document.getElementById("loginBox").style.display = "none";
+            document.getElementById("prankMessage").style.display = "block";
+            document.documentElement.requestFullscreen();
+            
+            setTimeout(function() {
+                document.getElementById("prankMessage").style.display = "none";
+                document.getElementById("explosionMessage").style.display = "block";
+                
+                let count = 5;
+                let countdownSpan = document.getElementById("countdown");
+                
+                let countdownInterval = setInterval(function() {
+                    countdownSpan.textContent = count;
+                    count--;
+                    
+                    if (count < 0) {
+                        clearInterval(countdownInterval);
+                        document.getElementById("explosionMessage").style.display = "none";
+                        document.getElementById("finalMessage").style.display = "block";
+                        
+                        setTimeout(function() {
+                            document.getElementById("finalMessage").style.display = "none";
+                            document.getElementById("hackedMessage").style.display = "block";
+                            setTimeout(function() {
+                                alert("💀 SYSTEM COMPROMISED! Just kidding! 😂");
+                                document.exitFullscreen();
+                            }, 3000);
+                        }, 3000);
+                    }
+                }, 1000);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
