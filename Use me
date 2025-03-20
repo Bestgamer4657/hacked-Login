@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clever Login Prank</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding-top: 100px;
+            margin: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .login-container {
+            background: white;
+            color: black;
+            padding: 20px;
+            width: 350px;
+            margin: auto;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            text-align: center;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: #0078d4;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #005ea2;
+        }
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container" id="loginBox">
+        <h2>Clever Login</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <label>
+            <input type="checkbox" id="staySignedIn"> Stay signed in
+        </label>
+        <button onclick="validateLogin()">Log In</button>
+    </div>
+    
+    <div class="message-container" id="prankMessage" style="display: none;">
+        <h1>You Have Been Hacked!</h1>
+    </div>
+    
+    <script>
+        function validateLogin() {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+            
+            if (username.length < 4 || password.length < 4) {
+                alert("Both Username and Password must be at least 4 characters long!");
+                return;
+            }
+            
+            document.getElementById("loginBox").style.display = "none";
+            document.getElementById("prankMessage").style.display = "block";
+        }
+    </script>
+    
+    <div class="footer">CLEVER</div>
+</body>
+</html>
